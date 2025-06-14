@@ -24,15 +24,52 @@
     <link rel="icon" href="">
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+
+    <!-- bootstrap CSS -->
+    <link href="{{ asset('vendor/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- carousel CSS -->
+    <link href="{{ asset('vendor/css/owl.carousel.min.css') }}" rel="stylesheet">
+    <!-- animate CSS -->
+    <link href="{{ asset('vendor/css/animate.css') }}" rel="stylesheet">
+    <!-- animated-text CSS -->
+    <link href="{{ asset('vendor/css/animated-text.css') }}" rel="stylesheet">
+    <!-- font-awesome CSS -->
+    <link href="{{ asset('vendor/css/all.min.css') }}" rel="stylesheet">
+    <!-- font-flaticon CSS -->
+    <link href="{{ asset('vendor/css/flaticon.css') }}" rel="stylesheet">
+    <!-- theme-default CSS -->
+    <link href="{{ asset('vendor/css/theme-default.css') }}" rel="stylesheet">
+    <!-- meanmenu CSS -->
+    <link href="{{ asset('vendor/css/meanmenu.min.css') }}" rel="stylesheet">
+    <!-- transitions CSS -->
+    <link href="{{ asset('vendor/css/owl.transitions.css') }}" rel="stylesheet">
+    <!-- venobox CSS -->
+    <link href="{{ asset('vendor/css/venobox.css') }}" rel="stylesheet">
+    <!-- bootstrap icons -->
+    <link href="{{ asset('vendor/css/bootstrap-icons.css') }}" rel="stylesheet">
+    <!-- Main Style CSS -->
+    <link href="{{ asset('custom/css/style.css') }}" rel="stylesheet">
+    <!-- responsive CSS -->
+    <link href="{{ asset('custom/css/responsive.css') }}" rel="stylesheet">
+
+    <script src="{{ asset('vendor/js/modernizr-3.5.0.min.js') }}"></script>
+    <link href="{{ asset('vendor/css/clash-display.css') }}" rel="stylesheet">
 
     @stack('css')
 
     {{-- Google Analytics --}}
 
 <body>
+    <!-- loder -->
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+        <div class="loder-section left-section"></div>
+        <div class="loder-section right-section"></div>
+    </div>
+
     <header>
-        {{-- @include('site.partials.header') --}}
+        @include('partials.header')
     </header>
 
     <section>
@@ -40,8 +77,25 @@
     </section>
 
     <footer class="footer-area">
-        {{-- @include('site.partials.footer') --}}
+        @include('partials.footer')
     </footer>
+
+    <script src="{{ asset('vendor/js/jquery-3.6.2.min.js') }}"></script>
+    <script src="{{ asset('vendor/js/popper.min.js') }}"></script>
+    <script src="{{ asset('vendor/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('vendor/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('vendor/js/waypoints.min.js') }}"></script>
+    <script src="{{ asset('vendor/js/wow.js') }}"></script>
+    <script src="{{ asset('vendor/js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('vendor/js/venobox.js') }}"></script>
+    <script src="{{ asset('vendor/js/animated-text.js') }}"></script>
+    <script src="{{ asset('vendor/js/venobox.min.js') }}"></script>
+    <script src="{{ asset('vendor/js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('vendor/js/jquery.meanmenu.js') }}"></script>
+    <script src="{{ asset('vendor/js/jquery.scrollUp.js') }}"></script>
+    <script src="{{ asset('vendor/js/jquery.barfiller.js') }}"></script>
+    <script src="{{ asset('custom/js/theme.js') }}"></script>
 
     @stack('js')
 </body>
