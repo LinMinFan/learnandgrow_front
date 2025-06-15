@@ -8,8 +8,8 @@
     <meta name="referrer" content="same-origin">
     <meta name="rating" content="general">
     <meta name="author" content="">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+    <meta name="description" content="{{ $configSetting['site-description']['text'] }}">
+    <meta name="keywords" content="{{ $configSetting['site-keywords']['text'] }}">
     <meta name="robots" content="index,follow">
     <meta name="_token" content="{{ csrf_token() }}">
 
@@ -18,10 +18,20 @@
     <link rel="canonical" href="{{ url()->current() }}">
 
     <!-- Title -->
-    <title></title>
+    @if (isset($pageSetting['title']))
+        <title>{{ $pageSetting['title'] }}</title>
+    @else
+        <title>{{ $configSetting['site-name']['text'] }}</title>
+    @endif
+    
 
     <!-- Favicon -->
-    <link rel="icon" href="">
+    @if (!empty($configSetting['favicon']['url']))
+        <link rel="icon" href="{{ storage_path('app/public/upload/' . $configSetting['favicon']['url'])}}">
+    @else
+        <link rel="icon" href="{{ asset('favicon.ico') }}">
+    @endif
+    
 
     <!-- Scripts -->
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
