@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('*', function ($view) {
+            $mediaServer = env('APP_ENV', 'local');
             $configSetting = [];
             $cacheKey = 'config_settings';
             $cacheMinutes = 120;
@@ -35,7 +36,10 @@ class AppServiceProvider extends ServiceProvider
                 Cache::put($cacheKey, $configSetting, now()->addMinutes($cacheMinutes));
             }
 
-            $view->with('configSetting', $configSetting);
+            $view->with([
+                'configSetting' => $configSetting,
+                'mediaServer' => $mediaServer,
+            ]);
         });
     }
 }

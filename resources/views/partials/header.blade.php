@@ -7,11 +7,21 @@
         <div class="row align-items-center">
             <div class="col-lg-3">
                 <div class="logo">
-                    <a class="logo_img" href="" title="zumla">
-                        <img src="{{ asset('storage/upload/' . $configSetting['site-logo']['url'])}}" alt="logo">
+                    <a class="logo_img" href="{{ route('home') }}" title="home">
+                        @if (empty($configSetting['site-logo']['url']))
+                            <img src="{{ asset('picture/logo.png') }}" alt="logo">
+                        @else
+                            <img src="{{ config('media-server.' . $mediaServer) . $configSetting['site-logo']['url'] }}"
+                                alt="logo">
+                        @endif
                     </a>
-                    <a class="main_sticky" href="" title="zumla">
-                        <img src="{{ asset('storage/upload/' . $configSetting['site-logo']['url'])}}" alt="logo">
+                    <a class="main_sticky" href="{{ route('home') }}" title="home">
+                        @if (empty($configSetting['site-logo']['url']))
+                            <img src="{{ asset('picture/logo-white.png') }}" alt="logo">
+                        @else
+                            <img src="{{ config('media-server.' . $mediaServer) . $configSetting['site-logo']['url'] }}"
+                                alt="logo">
+                        @endif
                     </a>
                 </div>
             </div>
@@ -22,13 +32,16 @@
                             <a href="{{ route('home') }}">首頁</a>
                         </li>
                         <li>
-                            <a href="{{ route('home') }}">作品集</a>
+                            <a href="{{ route('about') }}">關於我</a>
                         </li>
                         <li>
-                            <a href="{{ route('home') }}">文章</a>
+                            <a href="{{ route('portfolio-list') }}">作品集</a>
                         </li>
                         <li>
-                            <a href="{{ route('home') }}">與我聯絡</a>
+                            <a href="{{ route('post-list') }}">文章</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('contact') }}">與我聯絡</a>
                         </li>
                     </ul>
                 </nav>
@@ -42,28 +55,31 @@
     <div class="mobile-menu">
         <nav class="zumla_menu">
             <ul class="nav_scroll">
-                <li><a href="">Home </a></li>
-                <li><a href="#">Portfolio <span><i class="fas fa-chevron-down"></i></span></a>
-                    <ul class="sub-menu">
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="portfolio-details.html">portfolio-details</a></li>
-                    </ul>
+                <li>
+                    <a href="{{ route('home') }}">
+                        首頁
+                    </a>
                 </li>
-                <li><a href="#">Pages <span><i class="fas fa-chevron-down"></i></span></a>
-                    <ul class="sub-menu">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="service.html">OurService</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                <li>
+                    <a href="{{ route('about') }}">
+                        關於我
+                    </a>
                 </li>
-                <li><a href="#">Blog <span><i class="fas fa-chevron-down"></i></span></a>
-                    <ul class="sub-menu">
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="blog-list.html">Blog List</a></li>
-                        <li><a href="blog-details.html">Blog-details</a></li>
-                    </ul>
+                <li>
+                    <a href="{{ route('portfolio-list') }}">
+                        作品集
+                    </a>
                 </li>
-                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="{{ route('post-list') }}">
+                        文章
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('contact') }}">
+                        與我聯絡
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

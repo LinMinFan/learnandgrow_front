@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="referrer" content="same-origin">
     <meta name="rating" content="general">
-    <meta name="author" content="">
+    <meta name="author" content="林旻汎">
     <meta name="description" content="{{ $configSetting['site-description']['text'] }}">
     <meta name="keywords" content="{{ $configSetting['site-keywords']['text'] }}">
     <meta name="robots" content="index,follow">
@@ -26,10 +26,10 @@
     
 
     <!-- Favicon -->
-    @if (!empty($configSetting['favicon']['url']))
-        <link rel="icon" href="{{ storage_path('app/public/upload/' . $configSetting['favicon']['url'])}}">
+    @if (empty($configSetting['favicon']['url']))
+        <link rel="icon" href="{{ asset('picture/icon.png') }}">
     @else
-        <link rel="icon" href="{{ asset('favicon.ico') }}">
+        <link rel="icon" href="{{ config('media-server.' . $mediaServer) . $configSetting['favicon']['url'] }}">
     @endif
     
 
@@ -78,17 +78,11 @@
         <div class="loder-section right-section"></div>
     </div>
 
-    <header>
-        @include('partials.header')
-    </header>
+    @include('partials.header')
 
-    <section>
-        @yield('content')
-    </section>
+    @yield('content')
 
-    <footer class="footer-area">
-        @include('partials.footer')
-    </footer>
+    @include('partials.footer')
 
     <script src="{{ asset('vendor/js/jquery-3.6.2.min.js') }}"></script>
     <script src="{{ asset('vendor/js/popper.min.js') }}"></script>

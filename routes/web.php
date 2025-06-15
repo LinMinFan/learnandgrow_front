@@ -19,3 +19,9 @@ use App\Http\Controllers\HomeController;
 }); */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/portfolio-list', [HomeController::class, 'list'])->name('portfolio-list');
+Route::get('/portfolio/{name}', [HomeController::class, 'show'])->name('portfolio-show');
+Route::get('/post-list', [HomeController::class, 'show'])->name('post-list');
+Route::get('/post/{id}', [HomeController::class, 'show'])->name('post-show');

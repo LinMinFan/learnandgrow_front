@@ -1,5 +1,5 @@
 <!--==================================================-->
-<!-- start zumla-footer Section  -->
+<!-- start footer Section  -->
 <!--==================================================-->
 
 <div class="footer-section">
@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="footer-content">
-                    <h1>與我聯絡</h1>
+                    <h1>聯絡資訊</h1>
                 </div>
                 <div class="footer-info">
                     <h5>{{ $configSetting['site-author']['text'] }}</h5>
@@ -38,20 +38,23 @@
             <div class="col-lg-3">
                 <div class="footer-logo">
                     <a href="{{ route('home') }}">
-                        <img
-                            src="{{ asset('storage/upload/' . $configSetting['site-logo']['url']) }}"
-                            alt=""
-                        >
+                        @if (empty($configSetting['site-logo']['url']))
+                            <img src="{{ asset('picture/logo-white.png') }}" alt="logo">
+                        @else
+                            <img src="{{ config('media-server.' . $mediaServer) . $configSetting['site-logo']['url'] }}"
+                                alt="logo">
+                        @endif
                     </a>
                 </div>
             </div>
             <div class="col-lg-5">
                 <div class="footer-menu">
                     <ul>
-                        <li><a href="service.html">關於我</a></li>
-                        <li><a href="portfolio.html">作品集</a></li>
-                        <li><a href="portfolio.html">文章</a></li>
-                        <li><a href="#">與我聯絡</a></li>
+                        <li><a href="{{ route('home') }}">首頁</a></li>
+                        <li><a href="{{ route('about') }}">關於我</a></li>
+                        <li><a href="{{ route('portfolio-list') }}">作品集</a></li>
+                        <li><a href="{{ route('post-list') }}">文章</a></li>
+                        <li><a href="{{ route('contact') }}">與我聯絡</a></li>
                     </ul>
                 </div>
             </div>
@@ -60,7 +63,7 @@
 </div>
 
 <!--==================================================-->
-<!-- end zumla-footer Section  -->
+<!-- end footer Section  -->
 <!--==================================================-->
 
 <!--==================================================-->
