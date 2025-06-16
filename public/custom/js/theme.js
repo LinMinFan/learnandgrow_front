@@ -221,6 +221,12 @@
         $('#bar3').barfiller({
             duration: 7000
         });
+        $('#bar4').barfiller({
+            duration: 7000
+        });
+        $('#bar5').barfiller({
+            duration: 7000
+        });
 
 
         //======< Custom Tab >======
