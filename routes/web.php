@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutfolioController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +23,10 @@ use App\Http\Controllers\HomeController;
 }); */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-Route::get('/portfolio-list', [HomeController::class, 'list'])->name('portfolio-list');
-Route::get('/portfolio/{name}', [HomeController::class, 'show'])->name('portfolio-show');
+Route::get('/about', [AboutfolioController::class, 'about'])->name('about');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'create'])->name('create.contact');
+Route::get('/portfolio-list', [PortfolioController::class, 'portfolioList'])->name('portfolio-list');
+Route::get('/portfolio/{name}', [PortfolioController::class, 'portfolioShow'])->name('portfolio-show');
 Route::get('/post-list', [HomeController::class, 'show'])->name('post-list');
 Route::get('/post/{id}', [HomeController::class, 'show'])->name('post-show');

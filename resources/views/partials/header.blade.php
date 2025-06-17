@@ -11,7 +11,7 @@
                         @if (empty($configSetting['site-logo']['url']))
                             <img src="{{ asset('picture/logo.png') }}" alt="logo">
                         @else
-                            <img src="{{ config('media-server.' . $mediaServer) . $configSetting['site-logo']['url'] }}"
+                            <img src="{{ $mediaUrl . $configSetting['site-logo']['url'] }}"
                                 alt="logo">
                         @endif
                     </a>
@@ -19,7 +19,7 @@
                         @if (empty($configSetting['site-logo']['url']))
                             <img src="{{ asset('picture/logo-white.png') }}" alt="logo">
                         @else
-                            <img src="{{ config('media-server.' . $mediaServer) . $configSetting['site-logo']['url'] }}"
+                            <img src="{{ $mediaUrl . $configSetting['site-logo']['url'] }}"
                                 alt="logo">
                         @endif
                     </a>

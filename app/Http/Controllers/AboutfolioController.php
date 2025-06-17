@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Config;
 use App\Traits\HasPageSetting;
 
-class HomeController extends Controller
+use Illuminate\Http\Request;
+
+class AboutfolioController extends Controller
 {
     use HasPageSetting;
 
@@ -22,13 +22,13 @@ class HomeController extends Controller
             $this->config = Config::all()->pluck('value', 'key');
         }
 
-        $this->title = $this->config['site-name']['text'] . ' - 首頁';
+        $this->title = $this->config['site-name']['text'] . ' - 關於我';
     }
 
-    public function index(Request $request)
+    public function about(Request $request)
     {
         $pageSetting = $this->setPageSetting($this->title, null, null);
 
-        return view('index', compact('pageSetting'));
+        return view('pages.about', compact('pageSetting'));
     }
 }

@@ -7,11 +7,12 @@ use Illuminate\Support\Facades\Cache;
 use App\Models\Config;
 use App\Traits\HasPageSetting;
 
-class HomeController extends Controller
+class ContactController extends Controller
 {
     use HasPageSetting;
 
     protected $config;
+    protected $listTitle;
     protected $title;
 
     public function __construct()
@@ -22,13 +23,13 @@ class HomeController extends Controller
             $this->config = Config::all()->pluck('value', 'key');
         }
 
-        $this->title = $this->config['site-name']['text'] . ' - 首頁';
+        $this->listTitle = $this->config['site-name']['text'] . ' - 與我聯絡';
     }
 
     public function index(Request $request)
     {
         $pageSetting = $this->setPageSetting($this->title, null, null);
 
-        return view('index', compact('pageSetting'));
+        return view('pages.contact.index', compact('pageSetting'));
     }
 }

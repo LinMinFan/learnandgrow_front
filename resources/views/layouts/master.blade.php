@@ -8,8 +8,8 @@
     <meta name="referrer" content="same-origin">
     <meta name="rating" content="general">
     <meta name="author" content="林旻汎">
-    <meta name="description" content="{{ $configSetting['site-description']['text'] }}">
-    <meta name="keywords" content="{{ $configSetting['site-keywords']['text'] }}">
+    <meta name="description" content="{{ $pageSetting['description'] ?? $configSetting['site-description']['text'] }} }}">
+    <meta name="keywords" content="{{ $pageSetting['keywords'] ?? $configSetting['site-keywords']['text'] }}">
     <meta name="robots" content="index,follow">
     <meta name="_token" content="{{ csrf_token() }}">
 
@@ -17,21 +17,25 @@
 
     <link rel="canonical" href="{{ url()->current() }}">
 
-    <!-- Title -->
-    @if (isset($pageSetting['title']))
-        <title>{{ $pageSetting['title'] }}</title>
-    @else
-        <title>{{ $configSetting['site-name']['text'] }}</title>
-    @endif
-    
+    <!-- 頁面標題 -->
+    <title>
+        {{ $pageSetting['title'] ?? $configSetting['site-name']['text'] }}
+    </title>
+
+    <!-- OG Meta -->
+    <meta property="og:title" content="{{ $pageSetting['og']['title'] ?? $configSetting['og-meta']['title'] }}">
+    <meta property="og:description"
+        content="{{ $pageSetting['og']['description'] ?? $configSetting['og-meta']['description'] }}">
+    <meta property="og:image" content="{{ $mediaUrl . $pageSetting['og']['image'] ?? $mediaUrl . $configSetting['og-meta']['image'] }}">
+
 
     <!-- Favicon -->
     @if (empty($configSetting['favicon']['url']))
         <link rel="icon" href="{{ asset('picture/icon.png') }}">
     @else
-        <link rel="icon" href="{{ config('media-server.' . $mediaServer) . $configSetting['favicon']['url'] }}">
+        <link rel="icon" href="{{ $mediaUrl . $configSetting['favicon']['url'] }}">
     @endif
-    
+
 
     <!-- Scripts -->
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
