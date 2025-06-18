@@ -6,6 +6,7 @@ use App\Http\Controllers\AboutfolioController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EcpayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,14 @@ Route::get('/portfolio-list', [PortfolioController::class, 'portfolioList'])->na
 Route::get('/portfolio/{name}', [PortfolioController::class, 'portfolioShow'])->name('portfolio-show');
 Route::get('/post-list', [HomeController::class, 'show'])->name('post-list');
 Route::get('/post/{id}', [HomeController::class, 'show'])->name('post-show');
+
+/* 綠界介接 */
+Route::prefix('ecpay')->group(function () {
+    Route::get('/test', function () {
+        return view('ecpay.test-form');
+    })->name('ecpay.test');
+    Route::post('/create-order', [EcpayController::class, 'createOrder'])->name('ecpay.create.order');
+    Route::post('/notify', [EcpayController::class, 'notify'])->name('ecpay.notify');
+    Route::get('/return', [EcpayController::class, 'returnPage'])->name('ecpay.return');
+    Route::post('/client-notify', [EcpayController::class, 'clientNotify'])->name('ecpay.client.notify');
+});
