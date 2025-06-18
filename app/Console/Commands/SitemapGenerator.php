@@ -7,6 +7,7 @@ use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Sitemap\Sitemap;
+use Illuminate\Support\Facades\URL as LaravelURL;
 use Spatie\Sitemap\Tags\Url;
 use Carbon\Carbon;
 
@@ -37,7 +38,7 @@ class SitemapGenerator extends Command
 
         // 加入首頁
         $sitemap->add(
-            Url::create(URL::to('/'))
+            Url::create(LaravelURL::to('/'))
                 ->setLastModificationDate(Carbon::yesterday())
         );
 
