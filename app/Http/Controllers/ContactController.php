@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Config;
+use App\Models\ContactForm;
 use App\Traits\HasPageSetting;
 
 class ContactController extends Controller
@@ -31,5 +32,20 @@ class ContactController extends Controller
         $pageSetting = $this->setPageSetting($this->title, null, null);
 
         return view('pages.contact.index', compact('pageSetting'));
+    }
+
+    public function create(Request $request)
+    {
+        $validated = $request->validate([
+            'subject' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'nullable|string|max:20',
+            'message' => 'required|string',
+        ]);
+
+        ContactForm::create($validated);
+
+        return back()->with('success', '您的訊息已成功送出，我們將儘快與您聯繫！');
     }
 }

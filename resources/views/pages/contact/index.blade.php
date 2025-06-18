@@ -25,96 +25,77 @@
     <!--==================================================-->
 
     <!--==================================================-->
-    <!--start-blog-details-leave-area-->
+    <!-- Start ContactForm 區塊 -->
     <!--==================================================-->
-
-    <div class="contact-area">
+    <section class="py-5 bg-light">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="contact-title">
-                        <h3>Get In Touch</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="single-blog-box wow fadeInUp animated">
-                        <div class="blog-leave-title">
-                            <h3>Leave Comment</h3>
-                        </div>
-                        <form action="#" method="POST" id="dreamit-form">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-box">
-                                        <input type="text" name="name" placeholder="Name">
-                                    </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h2 class="h4 mb-4">
+                                <i class="fas fa-envelope me-2 text-primary"></i> 聯絡表單
+                            </h2>
+
+                            {{-- 引入共用提示訊息 --}}
+                            @include('partials.notification')
+
+                            <form action="{{ route('create.contact') }}" method="POST">
+                                @csrf
+
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">
+                                        主題 <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" name="subject" id="subject" class="form-control"
+                                        value="{{ old('subject') }}" required>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="form-box">
-                                        <input type="text" name="email" placeholder="Email">
-                                    </div>
+
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">
+                                        聯絡人名稱 <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" name="name" id="name" class="form-control"
+                                        value="{{ old('name') }}" required>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="form-box">
-                                        <input type="text" name="phone" placeholder="Phone">
-                                    </div>
+
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">
+                                        Email <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="email" name="email" id="email" class="form-control"
+                                        value="{{ old('email') }}" required>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="form-box">
-                                        <input type="text" name="subject" placeholder="Subject">
-                                    </div>
+
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">
+                                        電話
+                                    </label>
+                                    <input type="text" name="phone" id="phone" class="form-control"
+                                        value="{{ old('phone') }}">
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-box">
-                                        <textarea name="#" id="#" cols="30" rows="10" placeholder="Your Massage"></textarea>
-                                    </div>
+
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">
+                                        詳細內容 <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea name="message" id="message" rows="6" class="form-control" required>{{ old('message') }}</textarea>
                                 </div>
-                                <div class="form-button">
-                                    <button type="submit" name="btn">
-                                        Post Comment
+
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-paper-plane me-1"></i> 送出
                                     </button>
                                 </div>
-                            </div>
-                        </form>
-                        <div id="status"></div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="contact-single-box wow fadeInUp animated">
-                        <div class="contact-sub-title">
-                            <h4>Contact Info</h4>
+                            </form>
                         </div>
-                        <div class="contact-sub-content">
-                            <ul>
-                                <li><span><i class="fas fa-map-marker-alt"></i></span>
-                                    <p>Chilmari Road,Ulipur,Kurigram</p>
-                                </li>
-                                <li><span><i class="far fa-envelope"></i></span><a href="">example@gmail.com</a></li>
-                                <li><span><i class="fas fa-phone-alt"></i></span><a href="">1-88463903</a></li>
-                            </ul>
-                        </div>
-                        <div class="contact-social">
-                            <ul>
-                                <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                                <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="contact-map">
-                        <iframe src="embed.html"></iframe>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    </section>
     <!--==================================================-->
-    <!--end-blog-details leave area-->
+    <!-- End ContactForm 區塊 -->
     <!--==================================================-->
 @endsection
 
