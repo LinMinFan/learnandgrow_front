@@ -35,10 +35,10 @@
                             <a href="{{ route('about') }}">關於我</a>
                         </li>
                         <li>
-                            <a href="{{ route('portfolio-list') }}">作品集</a>
+                            <a href="{{ route('portfolio.list') }}">作品集</a>
                         </li>
                         <li>
-                            <a href="{{ route('post-list') }}">文章</a>
+                            <a href="{{ route('post.list', ['slug' => 'frontend']) }}">文章</a>
                         </li>
                         <li>
                             <a href="{{ route('contact') }}">與我聯絡</a>
@@ -66,12 +66,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('portfolio-list') }}">
+                    <a href="{{ route('portfolio.list') }}">
                         作品集
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('post-list') }}">
+                    <a href="{{ route('post.list') }}">
                         文章
                     </a>
                 </li>

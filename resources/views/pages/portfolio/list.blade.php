@@ -58,7 +58,7 @@
                             </div>
                             <div class="portfolio-content">
                                 <h5>
-                                    <a href="{{ route('portfolio-show', ['name' => $portfolio['name']]) }}">
+                                    <a href="{{ route('portfolio.show', ['name' => $portfolio['name']]) }}">
                                         {{ $portfolio['content'] }}
                                     </a>
                                 </h5>

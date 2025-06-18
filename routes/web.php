@@ -27,10 +27,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'about'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'create'])->name('create.contact');
-Route::get('/portfolio-list', [PortfolioController::class, 'portfolioList'])->name('portfolio-list');
-Route::get('/portfolio/{name}', [PortfolioController::class, 'portfolioShow'])->name('portfolio-show');
+Route::get('/portfolio-list', [PortfolioController::class, 'portfolioList'])->name('portfolio.list');
+Route::get('/portfolio/{name}', [PortfolioController::class, 'portfolioShow'])->name('portfolio.show');
 Route::get('/category/{slug}', [PostController::class, 'portfolioList'])->name('post.list');
-Route::get('/post/{id}', [PostController::class, 'postShow'])->name('post-show');
+Route::get('/post/{id}', [PostController::class, 'postShow'])->name('post.show');
 
 /* 綠界介接 */
 Route::prefix('ecpay')->group(function () {

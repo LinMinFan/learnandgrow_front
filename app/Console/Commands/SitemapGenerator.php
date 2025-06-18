@@ -56,7 +56,7 @@ class SitemapGenerator extends Command
 
         foreach ($articles as $article) {
             $sitemap->add(
-                Url::create(route('post-show', ['id' => $article->id]))
+                Url::create(route('post.show', ['id' => $article->id]))
                     ->setLastModificationDate(Carbon::yesterday())
             );
         }

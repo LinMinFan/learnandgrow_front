@@ -52,8 +52,8 @@
                     <ul>
                         <li><a href="{{ route('home') }}">首頁</a></li>
                         <li><a href="{{ route('about') }}">關於我</a></li>
-                        <li><a href="{{ route('portfolio-list') }}">作品集</a></li>
-                        <li><a href="{{ route('post-list') }}">文章</a></li>
+                        <li><a href="{{ route('portfolio.list') }}">作品集</a></li>
+                        <li><a href="{{ route('post.list', ['slug' => 'frontend']) }}">文章</a></li>
                         <li><a href="{{ route('contact') }}">與我聯絡</a></li>
                     </ul>
                 </div>
