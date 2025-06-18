@@ -33,7 +33,9 @@ class PostController extends Controller
         }])->whereNull('parent_id')->where('is_active', true)->orderBy('sort_order')->get();
 
         // 取得目前所選子分類
-        $currentCategory = Category::where('slug', $slug)->whereNotNull('parent_id')->firstOrFail();
+        $currentCategory = Category::where('slug', $slug)
+            ->whereNotNull('parent_id')
+            ->firstOrFail();
 
         // 取得該子分類下的文章（可加分頁）
         $posts = $currentCategory->articles()->where('status', 'published')->latest('published_at')->paginate(10);

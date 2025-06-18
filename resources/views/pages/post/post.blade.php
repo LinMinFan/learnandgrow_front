@@ -44,7 +44,7 @@
                         </div>
                     @else
                         <div class="mb-4 text-center">
-                            <img src="{{ asset('picture/about-study.png') }}" alt="{{ $post->title }}"
+                            <img src="{{ asset('picture/article-default.png') }}" alt="{{ $post->title }}"
                                 class="img-fluid rounded">
                         </div>
                     @endif
