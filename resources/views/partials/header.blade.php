@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('post.list') }}">
+                    <a href="{{ route('post.list', ['slug' => 'frontend']) }}">
                         文章
                     </a>
                 </li>

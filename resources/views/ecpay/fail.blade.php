@@ -22,6 +22,10 @@
             </div>
             <h1 class="h4 text-danger mb-3">付款失敗</h1>
             <p class="text-muted">交易無法完成，請稍後再試或聯絡客服。</p>
+            <a href="{{ route('home') }}"
+                class="mt-6 inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-full transition">
+                回到首頁
+            </a>
         </div>
     </div>
 

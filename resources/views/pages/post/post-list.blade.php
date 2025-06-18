@@ -40,7 +40,7 @@
                         <div class="mb-3">
                             <strong class="d-block mb-1">{{ $main->name }}</strong>
                             @foreach ($main->children as $child)
-                                <a href="{{ route('post.list', $child->slug) }}"
+                                <a href="{{ route('post.list', ['slug' => $child->slug]) }}"
                                     class="list-group-item list-group-item-action {{ $currentCategory->id === $child->id ? 'active' : '' }}">
                                     {{ $child->name }}
                                 </a>

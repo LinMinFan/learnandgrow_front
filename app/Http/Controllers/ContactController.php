@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Cache;
 use App\Models\Config;
 use App\Models\ContactForm;
 use App\Traits\HasPageSetting;
+use App\Http\Requests\ContactFormRequest;
 
 class ContactController extends Controller
 {
     use HasPageSetting;
 
     protected $config;
-    protected $listTitle;
     protected $title;
 
     public function __construct()
@@ -24,17 +24,18 @@ class ContactController extends Controller
             $this->config = Config::all()->pluck('value', 'key');
         }
 
-        $this->listTitle = $this->config['site-name']['text'] . ' - 與我聯絡';
+        $this->title = $this->config['site-name']['text'] . ' - 與我聯絡';
     }
 
     public function index(Request $request)
     {
         $pageSetting = $this->setPageSetting($this->title);
+        $subjects = config('contact-form.subject');
 
-        return view('pages.contact.index', compact('pageSetting'));
+        return view('pages.contact.index', compact(['pageSetting', 'subjects']));
     }
 
-    public function create(Request $request)
+    public function create(ContactFormRequest $request)
     {
         $validated = $request->validate([
             'subject' => 'required|string|max:255',

@@ -23,6 +23,10 @@
             </div>
             <h1 class="h4 text-success mb-3">付款成功</h1>
             <p class="text-muted">感謝您的訂購，我們已收到您的付款。</p>
+            <a href="{{ route('home') }}"
+                class="mt-6 inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-full transition">
+                回到首頁
+            </a>
         </div>
     </div>
 

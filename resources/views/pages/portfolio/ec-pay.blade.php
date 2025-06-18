@@ -5,6 +5,11 @@
 @endpush
 
 @push('css')
+    <style>
+        .border-left-success {
+            border-left: 5px solid #198754 !important;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -34,22 +39,41 @@
     <section class="py-5 bg-light">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="card shadow-sm border-0">
-                        <div class="card-body">
-                            <h2 class="h4 mb-4">綠界金流整合說明</h2>
-                            <p class="mb-3">
-                                本系統已整合 <strong>綠界科技 ECPay</strong> 金流服務，支援信用卡一次付清、ATM 虛擬帳號轉帳、超商代碼繳費等多種付款方式。
-                                使用者可透過串接流程完成付款，我們在付款成功後會收到綠界的伺服器端通知，並進行訂單狀態更新。
+                <div class="col-lg-8">
+                    <div class="card shadow-sm border-0 rounded border-left-success">
+                        <div class="card-body p-4">
+                            <h2 class="h4 fw-bold mb-3 text-success">綠界金流整合說明</h2>
+                            <p class="lead text-muted">
+                                本系統已整合 <strong>綠界科技 ECPay</strong> 金流服務，支援多種付款方式，包括：
                             </p>
-                            <ul class="mb-4">
-                                <li>✔️ 使用 Laravel Service 套件實作 ECPay SDK 封裝</li>
-                                <li>✔️ 金流完成後可接收 Notify 並導向結果頁面</li>
-                                <li>✔️ 可依環境切換至測試或正式模式</li>
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item">信用卡一次付清</li>
+                                <li class="list-group-item">ATM 虛擬帳號轉帳</li>
+                                <li class="list-group-item">超商代碼繳費</li>
                             </ul>
-                            <a href="{{ route('ecpay.test') }}" class="btn btn-success">
-                                前往測試付款表單
-                            </a>
+                            <p class="text-muted">
+                                使用者付款成功後，系統將自動接收來自綠界的付款通知 (Server Notify)，進而更新訂單狀態。
+                            </p>
+                            <div class="mb-4">
+                                <div class="d-flex align-items-start mb-3">
+                                    <i class="fas fa-check-circle text-success fs-5 me-3 mt-1"></i>
+                                    <div>使用 Laravel Service 套件封裝 ECPay SDK</div>
+                                </div>
+                                <div class="d-flex align-items-start mb-3">
+                                    <i class="fas fa-check-circle text-success fs-5 me-3 mt-1"></i>
+                                    <div>支援付款完成自動接收通知與導向結果頁面</div>
+                                </div>
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-check-circle text-success fs-5 me-3 mt-1"></i>
+                                    <div>可於環境設定檔中切換測試 / 正式模式</div>
+                                </div>
+                            </div>
+
+                            <div class="text-end">
+                                <a href="{{ route('ecpay.test') }}" class="btn btn-success btn-lg" target="_blank">
+                                    <i class="fas fa-vial me-1"></i> 前往測試付款表單
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
