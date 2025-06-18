@@ -28,7 +28,7 @@ class PortfolioController extends Controller
 
     public function portfolioList(Request $request)
     {
-        $pageSetting = $this->setPageSetting($this->listTitle, null, null);
+        $pageSetting = $this->setPageSetting($this->listTitle);
 
         return view('pages.portfolio.list', compact('pageSetting'));
     }
@@ -36,7 +36,7 @@ class PortfolioController extends Controller
     public function portfolioShow(Request $request, $name)
     {
         $this->title = $this->config['site-name']['text'] . ' - ' . $name;
-        $pageSetting = $this->setPageSetting($this->title, null, null);
+        $pageSetting = $this->setPageSetting($this->title);
 
         return view('pages.portfolio.' . $name, compact(['pageSetting', 'name']));
     }

@@ -7,7 +7,7 @@ use App\Traits\HasPageSetting;
 
 use Illuminate\Http\Request;
 
-class AboutfolioController extends Controller
+class AboutController extends Controller
 {
     use HasPageSetting;
 
@@ -27,7 +27,7 @@ class AboutfolioController extends Controller
 
     public function about(Request $request)
     {
-        $pageSetting = $this->setPageSetting($this->title, null, null);
+        $pageSetting = $this->setPageSetting($this->title);
 
         return view('pages.about', compact('pageSetting'));
     }

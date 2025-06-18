@@ -29,7 +29,7 @@ class ContactController extends Controller
 
     public function index(Request $request)
     {
-        $pageSetting = $this->setPageSetting($this->title, null, null);
+        $pageSetting = $this->setPageSetting($this->title);
 
         return view('pages.contact.index', compact('pageSetting'));
     }
