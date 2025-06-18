@@ -6,8 +6,8 @@ use Illuminate\Console\Command;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\URL;
 use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
 use Carbon\Carbon;
 
 class SitemapGenerator extends Command
