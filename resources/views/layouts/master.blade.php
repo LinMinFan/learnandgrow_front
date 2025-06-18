@@ -10,7 +10,6 @@
     <meta name="author" content="林旻汎">
     <meta name="description" content="{{ $pageSetting['description'] ?? $configSetting['site-description']['text'] }} }}">
     <meta name="keywords" content="{{ $pageSetting['keywords'] ?? $configSetting['site-keywords']['text'] }}">
-    <meta name="robots" content="index,follow">
     <meta name="_token" content="{{ csrf_token() }}">
 
     @stack('meta')

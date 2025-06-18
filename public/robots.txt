@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://learnandgrow.com.tw/sitemap.xml

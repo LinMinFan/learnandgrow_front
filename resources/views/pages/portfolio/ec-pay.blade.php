@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@push('meta')
+    <meta name="robots" content="index, nofollow">
+@endpush
+
 @push('css')
 @endpush
 

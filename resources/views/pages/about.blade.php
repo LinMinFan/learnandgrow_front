@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@push('meta')
+    <meta name="robots" content="index, follow">
+@endpush
+
 @push('css')
     <link href="{{ asset('custom/css/about-custom.css') }}" rel="stylesheet">
 @endpush

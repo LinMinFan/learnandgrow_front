@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta name="robots" content="noindex, nofollow">
     <title>正在前往綠界付款...</title>
 </head>
 
