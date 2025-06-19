@@ -38,7 +38,7 @@
                             <a href="{{ route('portfolio.list') }}">作品集</a>
                         </li>
                         <li>
-                            <a href="{{ route('post.list', ['slug' => 'frontend']) }}">文章</a>
+                            <a href="{{ route('post.list', ['slug' => 'backend']) }}">文章</a>
                         </li>
                         <li>
                             <a href="{{ route('contact') }}">與我聯絡</a>
@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('post.list', ['slug' => 'frontend']) }}">
+                    <a href="{{ route('post.list', ['slug' => 'backend']) }}">
                         文章
                     </a>
                 </li>

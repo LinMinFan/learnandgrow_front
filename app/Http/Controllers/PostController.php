@@ -25,7 +25,7 @@ class PostController extends Controller
         }
     }
 
-    public function portfolioList(Request $request, $slug = 'frontend')
+    public function portfolioList(Request $request, $slug = 'backend')
     {
         // 取得所有主分類及其子分類（供左側選單使用）
         $categories = Category::with(['children' => function ($query) {
