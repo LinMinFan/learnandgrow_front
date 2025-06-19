@@ -5,6 +5,7 @@
 @endpush
 
 @push('css')
+    <link href="{{ asset('vendor/css/monokai-sublime.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -76,4 +77,10 @@
 @endsection
 
 @push('js')
+    <script src="{{ asset('vendor/js/highlight.min.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.highlightAll();
+        });
+    </script>
 @endpush
