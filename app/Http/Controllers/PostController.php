@@ -50,6 +50,11 @@ class PostController extends Controller
     public function postShow(Request $request, $id)
     {
         $post = Article::with('category')->find($id);
+
+        if (!$post) {
+            abort(404);
+        }
+
         $name = $post->title;
 
         $this->title = $this->config['site-name']['text'] . ' - ' . $name;
