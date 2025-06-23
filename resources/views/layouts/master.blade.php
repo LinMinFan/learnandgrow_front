@@ -8,25 +8,39 @@
     <meta name="referrer" content="same-origin">
     <meta name="rating" content="general">
     <meta name="author" content="林旻汎">
-    <meta name="description" content="{{ $pageSetting['description'] ?? $configSetting['site-description']['text'] }} }}">
-    <meta name="keywords" content="{{ $pageSetting['keywords'] ?? $configSetting['site-keywords']['text'] }}">
     <meta name="_token" content="{{ csrf_token() }}">
+
+    @if (!empty($pageSetting))
+        <meta name="description" content="{{ $pageSetting['description'] ?? $configSetting['site-description']['text'] }} }}">
+        <meta name="keywords" content="{{ $pageSetting['keywords'] ?? $configSetting['site-keywords']['text'] }}">
+        <!-- OG Meta -->
+        <meta property="og:title" content="{{ $pageSetting['og']['title'] ?? $configSetting['og-meta']['title'] }}">
+        <meta property="og:description"
+            content="{{ $pageSetting['og']['description'] ?? $configSetting['og-meta']['description'] }}">
+        <meta property="og:image" content="{{ $mediaUrl . $pageSetting['og']['image'] ?? $mediaUrl . $configSetting['og-meta']['image'] }}">
+
+        <!-- 頁面標題 -->
+        <title>
+            {{ $pageSetting['title'] ?? $configSetting['site-name']['text'] }}
+        </title>
+    @else
+        <meta name="description" content="{{ $configSetting['site-description']['text'] }} }}">
+        <meta name="keywords" content="{{ $configSetting['site-keywords']['text'] }}">
+        <!-- OG Meta -->
+        <meta property="og:title" content="{{ $configSetting['og-meta']['title'] }}">
+        <meta property="og:description"
+            content="{{ $configSetting['og-meta']['description'] }}">
+        <meta property="og:image" content="{{ $mediaUrl . $configSetting['og-meta']['image'] }}">
+
+        <!-- 頁面標題 -->
+        <title>
+            {{ $configSetting['site-name']['text'] }}
+        </title>
+    @endif
 
     @stack('meta')
 
     <link rel="canonical" href="{{ url()->current() }}">
-
-    <!-- 頁面標題 -->
-    <title>
-        {{ $pageSetting['title'] ?? $configSetting['site-name']['text'] }}
-    </title>
-
-    <!-- OG Meta -->
-    <meta property="og:title" content="{{ $pageSetting['og']['title'] ?? $configSetting['og-meta']['title'] }}">
-    <meta property="og:description"
-        content="{{ $pageSetting['og']['description'] ?? $configSetting['og-meta']['description'] }}">
-    <meta property="og:image" content="{{ $mediaUrl . $pageSetting['og']['image'] ?? $mediaUrl . $configSetting['og-meta']['image'] }}">
-
 
     <!-- Favicon -->
     @if (empty($configSetting['favicon']['url']))
