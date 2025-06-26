@@ -4,8 +4,8 @@ return [
     'list' => [
         [
             'img' => 'picture/vue-nukt-thumb.png',
-            'info' => 'Vue 3 + Nuxt',
-            'content' => '基於 Vue 3 與 Nuxt 2 所開發的電商平台',
+            'info' => 'Vue + Nuxt 2',
+            'content' => '基於 Vue 與 Nuxt 2 所開發的電商平台',
             'name' => 'vue-nuxt',
         ],
         [

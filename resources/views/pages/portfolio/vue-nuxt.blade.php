@@ -68,10 +68,10 @@
                 <div class="card shadow-sm border-0">
                     <div class="card-body">
                         <h2 class="h4 mb-4">
-                            <i class="fas fa-cart-shopping me-2 text-primary"></i> 電商網站專案（Vue 3 + Nuxt）
+                            <i class="fas fa-cart-shopping me-2 text-primary"></i> 電商網站專案（Vue + Nuxt 2）
                         </h2>
                         <p class="text-muted">
-                            本專案為一個基於 Vue 3 與 Nuxt 2 所開發的電商平台，涵蓋首頁展示、商品購物車與結帳流程。透過前端互動設計與插件整合，呈現出完整的使用者體驗。
+                            本專案為一個基於 Vue 與 Nuxt 2 所開發的電商平台，涵蓋首頁展示、商品購物車與結帳流程。透過前端互動設計與插件整合，呈現出完整的使用者體驗。
                         </p>
 
                         <hr class="my-4">
